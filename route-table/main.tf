@@ -1,5 +1,5 @@
 resource "azurerm_route_table" "rt-dr-hub-firewall" {
-  name                          = "rt-dr-hub-firewall"
+  name                          = "rt-dr-hub-firewall-001"
   location                      = var.rg-location
   resource_group_name           = var.rg-name
   disable_bgp_route_propagation = false
