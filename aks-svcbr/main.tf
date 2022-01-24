@@ -1,11 +1,11 @@
-resource "azurerm_kubernetes_cluster" "aks-webapi" {
-  name                = "aks-webapi-${var.customer-name}-${var.env}-${var.location-prefix}-01"
+resource "azurerm_kubernetes_cluster" "aks-svcbr" {
+  name                = "aks-svcbr-${var.customer-name}-${var.env}-${var.location-prefix}-01"
   location            = var.rg-location
   resource_group_name = var.rg-name
-  dns_prefix          = "aks-webapi-${var.customer-name}-${var.env}"
+  dns_prefix          = "aks-svcbr-${var.customer-name}-${var.env}"
   private_cluster_enabled = true
   sku_tier            = "Paid"
-  node_resource_group = "rg-aksnode-webapi-${var.customer-name}-${var.env}-${var.location-prefix}-01"
+  node_resource_group = "rg-aksnode-svcbr-${var.customer-name}-${var.env}-${var.location-prefix}-01"
 
   default_node_pool {
     name       = "system"
@@ -51,9 +51,9 @@ resource "azurerm_kubernetes_cluster" "aks-webapi" {
   }
 }
 
-resource "azurerm_kubernetes_cluster_node_pool" "webapi-user-np" {
+resource "azurerm_kubernetes_cluster_node_pool" "svcbr-user-np" {
   name                  = "workload01"
-  kubernetes_cluster_id = azurerm_kubernetes_cluster.aks-webapi.id
+  kubernetes_cluster_id = azurerm_kubernetes_cluster.aks-svcbr.id
   vm_size               = var.aks-user-np-vm-size
   node_count            = 10
   enable_auto_scaling   = true
@@ -65,8 +65,8 @@ resource "azurerm_kubernetes_cluster_node_pool" "webapi-user-np" {
   os_disk_size_gb = 128
   os_disk_type = "Ephemeral"
 
-  node_taints = ["workload=webapi:NoSchedule"]
-  node_labels = {"workload"="webapi"}
+  node_taints = ["workload=svcbr:NoSchedule"]
+  node_labels = {"workload"="svcbr"}
 
   tags = {
     Environment  = var.env,
