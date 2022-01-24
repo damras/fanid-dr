@@ -1,0 +1,23 @@
+variable "rg-location" {}
+variable "location-prefix" {}
+variable "rg-name" {}
+variable "vnet-name" {}
+variable "customer-name" {}
+variable "env" {}
+variable "createdby" {}
+variable "creationdate" {}
+
+variable "aks-chatbot-subnet-address-space" {}
+variable "aks-ibmmw-subnet-address-space" {}
+variable "aks-bo-subnet-address-space" {}
+variable "aks-liferay-subnet-address-space" {}
+variable "aks-webapi-subnet-address-space" {}
+variable "aks-svcbr-subnet-address-space" {}
+variable "pe-subnet-address-space" {}
+variable "netapp-liferay-subnet-address-space" {}
+variable "netapp-bo-subnet-address-space" {}
+variable "sqlmi-orbis-subnet-address-space" {}
+variable "apps-orbis-subnet-address-space" {}
+variable "sqlmi-chatbot-subnet-address-space" {}
+variable "redis-bo-subnet-address-space" {}
+variable "mysql-subnet-address-space" {}
