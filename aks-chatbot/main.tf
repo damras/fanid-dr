@@ -65,8 +65,8 @@ resource "azurerm_kubernetes_cluster_node_pool" "chatbot-lin-dr-np" {
   os_disk_size_gb = 128
   os_disk_type = "Ephemeral"
 
-#  node_taints = ["workload=bo:NoSchedule"]
-#  node_labels = {"workload"="bo"}
+  node_taints = ["workload=linux:NoSchedule"]
+  node_labels = {"workload"="linux"}
 
   tags = {
     Environment  = var.env,
