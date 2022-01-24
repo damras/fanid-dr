@@ -26,3 +26,7 @@ output "bo-rg-name" {
    value  = azurerm_resource_group.bo-rg.name
 }
 
+output "acr-rg-name" {
+   value  = azurerm_resource_group.acr-rg.name
+}
+

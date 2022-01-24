@@ -93,8 +93,15 @@ resource "azurerm_subnet" "sqlmi-orbis-subnet" {
   resource_group_name  = var.rg-name
   virtual_network_name = var.vnet-name
   address_prefixes     = [var.sqlmi-orbis-subnet-address-space]
-  enforce_private_link_endpoint_network_policies = true
-  enforce_private_link_service_network_policies  = true
+
+  delegation {
+    name = "managedinstancedelegation"
+
+    service_delegation {
+      name    = "Microsoft.Sql/managedInstances"
+      actions = ["Microsoft.Network/virtualNetworks/subnets/join/action", "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action", "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action"]
+    }
+  }
 }
 
 resource "azurerm_subnet" "apps-orbis-subnet" {
@@ -111,8 +118,15 @@ resource "azurerm_subnet" "sqlmi-chatbot-subnet" {
   resource_group_name  = var.rg-name
   virtual_network_name = var.vnet-name
   address_prefixes     = [var.sqlmi-chatbot-subnet-address-space]
-  enforce_private_link_endpoint_network_policies = true
-  enforce_private_link_service_network_policies  = true
+
+  delegation {
+    name = "managedinstancedelegation"
+
+    service_delegation {
+      name    = "Microsoft.Sql/managedInstances"
+      actions = ["Microsoft.Network/virtualNetworks/subnets/join/action", "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action", "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action"]
+    }
+  } 
 }
 
 resource "azurerm_subnet" "redis-bo-subnet" {

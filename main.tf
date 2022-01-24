@@ -186,6 +186,19 @@ module "aks-chatbot" {
    depends_on                = [module.route-table-association]
 }
 
+module "acr" { 
+   source                = "./acr"
+   env                   = var.env
+   createdby             = var.createdby
+   creationdate          = var.creationdate
+   customer-name         = var.customer-name
+   location-prefix       = var.location-prefix
+   rg-name               = module.rg.acr-rg-name
+   rg-location           = var.location
+   vnet-id               = var.vnet-id
+   pe-subnet-id          = module.vnet.pe-subnet-id
+}
+
 module "mysql" {
    source                    = "./mysql"
    env                       = var.env

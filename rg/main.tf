@@ -67,3 +67,13 @@ resource "azurerm_resource_group" "mysql-rg" {
     CreationDate = var.creationdate
   }
 }
+
+resource "azurerm_resource_group" "acr-rg" {
+  name     = "rg-acr-${var.customer-name}-${var.env}-${var.location-prefix}-01"
+  location = var.location
+  tags = {
+    Environment  = var.env,
+    CreatedBy    = var.createdby,
+    CreationDate = var.creationdate
+  }
+}

@@ -25,3 +25,7 @@ output "aks-ibmmw-subnet-id" {
 output "mysql-subnet-id" { 
    value = azurerm_subnet.mysql-subnet.id
 }
+
+output "pe-subnet-id" { 
+   value = azurerm_subnet.pe-subnet.id
+}
