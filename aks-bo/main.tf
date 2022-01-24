@@ -65,9 +65,6 @@ resource "azurerm_kubernetes_cluster_node_pool" "bo-dr-np" {
   os_disk_size_gb = 128
   os_disk_type = "Ephemeral"
 
-  node_taints = ["workload=bo:NoSchedule"]
-  node_labels = {"workload"="bo"}
-
   tags = {
     Environment  = var.env,
     CreatedBy    = var.createdby,
@@ -88,9 +85,6 @@ resource "azurerm_kubernetes_cluster_node_pool" "boscbr-dr-np" {
   max_pods              = 12
   os_disk_size_gb = 128
   os_disk_type = "Ephemeral"
-
-  node_taints = ["workload=boscbr:NoSchedule"]
-  node_labels = {"workload"="boscbr"}
 
   tags = {
     Environment  = var.env,
