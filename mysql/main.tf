@@ -15,8 +15,8 @@ resource "azurerm_private_dns_zone_virtual_network_link" "fanid-vnet-link" {
   resource_group_name   = var.rg-name
 }
 
-resource "azurerm_mysql_flexible_server" "genamazing-mysql-svr" {
-  name                = "${var.customer-name}-${var.env}-mysql-we-01"
+resource "azurerm_mysql_flexible_server" "fanid-mysql-svr" {
+  name                = "${var.customer-name}-${var.env}-mysql-${var.location-prefix}-01"
   location            = var.rg-location
   geo_redundant_backup_enabled=true
   resource_group_name = var.rg-name

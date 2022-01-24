@@ -1,13 +1,10 @@
-variable "aks-webapi-subnet-id" {
-  default = "changeme"
-}
+variable "aks-bo-subnet-id" {}
+variable "aks-chatbot-subnet-id" {}
+variable "aks-ibmmw-subnet-id" {}
+variable "aks-liferay-subnet-id" {}
+variable "aks-webapi-subnet-id" {}
+variable "aks-svcbr-subnet-id" {}
 
-variable "aks-svc-subnet-id" {
-  default = "changeme"
-}
-
-variable "route-table-id" {
-  default = "changeme"
-}
+variable "route-table-id" {}
 
 

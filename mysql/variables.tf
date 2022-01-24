@@ -1,9 +1,8 @@
 variable "rg-location" {
-   default= "nolocation"
 }
 
+variable "location-prefix" {}
 variable "rg-name" {
-   default= "noname"
 }
 
 variable "customer-name" {}

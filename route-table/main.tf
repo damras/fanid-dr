@@ -1,14 +1,14 @@
-resource "azurerm_route_table" "rt-hub-firewall" {
-  name                          = "rt-hub-firewall"
+resource "azurerm_route_table" "rt-dr-hub-firewall" {
+  name                          = "rt-dr-hub-firewall"
   location                      = var.rg-location
   resource_group_name           = var.rg-name
   disable_bgp_route_propagation = false
 
-  route {
-    name                        = "route_internal_traffic_in_vnet"
-    address_prefix              = var.vnet-address-space
-    next_hop_type               = "VnetLocal"
-  }
+#  route {
+#    name                        = "route_internal_traffic_in_vnet"
+#    address_prefix              = var.vnet-address-space
+#    next_hop_type               = "VnetLocal"
+#  }
 
   route {
     name                        = "route_all_traffic_to_fw"
@@ -23,4 +23,3 @@ resource "azurerm_route_table" "rt-hub-firewall" {
     CreationDate = var.creationdate
   }
 }
-
