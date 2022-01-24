@@ -77,3 +77,13 @@ resource "azurerm_resource_group" "acr-rg" {
     CreationDate = var.creationdate
   }
 }
+
+resource "azurerm_resource_group" "sqldb-rg" {
+  name     = "rg-sqldb-${var.customer-name}-${var.env}-${var.location-prefix}-01"
+  location = var.location
+  tags = {
+    Environment  = var.env,
+    CreatedBy    = var.createdby,
+    CreationDate = var.creationdate
+  }
+}

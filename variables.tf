@@ -49,6 +49,9 @@ variable "vnet-id" {
 variable "mysql-userid" {
 } 
 
+variable "sql-server-admin-user" {}
+variable "sql-server-admin-password" {}
+
 variable "mysql-password" {
 }
 

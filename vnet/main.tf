@@ -1,13 +1,13 @@
-# resource "azurerm_virtual_network" "fanid-dr-vnet" {
-#  name                = "vnet-fanid-dr-ne-001"
-#  location            = "northeurope"
-#  resource_group_name = var.rg-name
-#  address_space       = ["172.23.112.0/20"]
+resource "azurerm_virtual_network" "fanid-dr-vnet" {
+  name                = "vnet-fanid-dr-ne-001"
+  location            = "northeurope"
+  resource_group_name = var.rg-name
+  address_space       = ["172.23.112.0/20"]
 
-# tags = {
-#    environment = "Hub"
-#  }
-#}
+ tags = {
+    environment = "Hub"
+  }
+}
 
 
 resource "azurerm_subnet" "aks-chatbot-subnet" {
