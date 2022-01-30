@@ -6,6 +6,10 @@ resource "azurerm_kubernetes_cluster" "aks-bo" {
   private_cluster_enabled = true
   sku_tier            = "Paid"
   node_resource_group = "rg-aksnode-bo-${var.customer-name}-${var.env}-${var.location-prefix}-01"
+  
+role_based_access_control {
+      enabled = true
+} 
 
   default_node_pool {
     name       = "system"
